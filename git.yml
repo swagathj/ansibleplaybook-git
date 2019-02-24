@@ -1,0 +1,31 @@
+---
+- name: Ansible playbook for git repository
+  hosts:
+    - test
+  remote_user: root
+  gather_facts: yes
+  vars_prompt:
+      - name: "githubuser"
+        prompt: "Enter the username"
+        private: no
+      - name: "githubpassword"
+        prompt: "Enter the password"
+        private: yes
+  tasks:
+      - stat:
+          path: "{{ destpath }}"
+        register: destpath_repo
+      - name: Clonning the git repository form gitlab
+        git:
+          repo: "https://{{ githubuser | urlencode }}:{{ githubpassword | urlencode }}@{{ repo }}"
+          dest: "{{ destpath }}"
+          executable: "{{ GIT_PATH }}"
+        when: not destpath_repo.stat.exists
+      - name: Pull the latest repository from gitlab
+        git:
+          repo: "https://{{ githubuser }}:{{ githubpassword | urlencode }}@{{ repo }}"
+          dest: "{{ destpath }}"
+          force: yes
+          update: yes
+          executable: "{{ GIT_PATH }}"
+        when: destpath_repo.stat.exists

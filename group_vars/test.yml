@@ -1,0 +1,4 @@
+---
+GIT_PATH: /usr/bin/git
+repo: github.com/swagathj/freelance.git
+destpath: /tmp/test
