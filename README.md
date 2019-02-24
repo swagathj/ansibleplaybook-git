@@ -1,1 +1,1 @@
-This is the Ansible gitpul and gitpush playbook depends of git availablity
+This is the Ansible gitpull and gitpush playbook depends of git availablity
