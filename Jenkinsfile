@@ -20,7 +20,7 @@ pipeline {
 		dir('Ansibledemo')
               {
                
-               sh 'ansible all -m ping -i inventory'
+               sh 'ansible all -m ping -i ../inventory'
 	     }
             }
         }
