@@ -5,6 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
+		git branch: 'master', url: 'https://github.com/swagathj/ansibleplaybook-git.git/'
             }
         }
         stage('Test') {
