@@ -17,7 +17,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-		dir('workspace/Ansibledemo')
+		dir('workspace')
               {
                
                sh 'ansible all -m ping -i inventory'
