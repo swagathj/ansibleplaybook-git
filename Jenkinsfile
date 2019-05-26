@@ -17,7 +17,6 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-#		sh 'ansible all -m ping -i /var/lib/jenkins/workspace/Ansibledemo/inventory'
             }
         }
     }
