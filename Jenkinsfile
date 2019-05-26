@@ -19,7 +19,7 @@ pipeline {
 		dir('')
               {
                
-               sh 'ansible all -m ping -i inventory'
+               sh 'ansible-playbook -i inventory git.yml'
 	     }
             }
         }
