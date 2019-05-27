@@ -19,7 +19,7 @@ pipeline {
 		dir('')
               {
                
-               sh 'ansible-playbook -i inventory git.yml'
+               sh 'ansible --version'
 	     }
             }
         }
